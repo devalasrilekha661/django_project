@@ -1,0 +1,72 @@
+<style>
+    /* Page background */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f3f6fb;
+  margin: 0;
+  padding: 0;
+}
+
+/* Center form */
+.form-container {
+  width: 360px;
+  margin: 80px auto;
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Inputs */
+.form-container input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.form-container input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  background: #27ae60;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-container button:hover {
+  background: #219150;
+}
+
+</style>
+<div class="form-container">
+<h2>Edit Student</h2>
+<form method="POST">
+    {% csrf_token %}
+    <input name="name" value="{{ student.name }}"><br>
+    <input name="email" value="{{ student.email }}"><br>
+    <input type="text" name="phNum" value="{{ student.user.phNum }}">
+    <input name="course" value="{{ student.course }}"><br>
+    <input name="age" value="{{ student.age }}"><br>
+    <button>Update</button>
+</form>
+</div>

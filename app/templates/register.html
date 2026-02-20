@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #4e73df, #1cc88a);
+    }
+
+    #reg_div {
+        background-color: white;
+        padding: 30px;
+        width: 350px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    #reg_div h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+        text-transform: capitalize;
+    }
+
+    #reg_form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #reg_form input,
+    #reg_form select {
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        outline: none;
+        font-size: 14px;
+        transition: 0.3s ease;
+    }
+
+    #reg_form input:focus,
+    #reg_form select:focus {
+        border-color: #4e73df;
+        box-shadow: 0 0 5px rgba(78, 115, 223, 0.5);
+    }
+
+    #reg_btn {
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        background-color: #4e73df;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    #reg_btn:hover {
+        background-color: #2e59d9;
+    }
+</style>
+
+</head>
+<body>
+   <div id="reg_div">
+     <h2>registration form</h2>
+    <form id="reg_form">
+    <input type="text" placeholder="enter name here" id="name" required>
+    <input type="email" placeholder="enter email here" id="email" required>
+    <input type="text" placeholder="enter ph number" id="phNum" required>
+    <input type="password" placeholder="enter password" id="password" required>
+    <input type="password" placeholder="enter confirm password" id="c_password" required>
+    <select name="" id="role" required>
+        <option value="">Choose one below</option>
+        <option value="Teacher">Teacher</option>
+        <option value="Student">Student</option>
+    </select>
+    <button id="reg_btn">Register</button>
+    </form>
+    <a href="/login">Login</a>
+   </div>
+
+   <script src="{% static 'reg.js' %}"></script>
+</body>
+</html>

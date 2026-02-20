@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Dashboard</title>
+
+</head>
+<style>
+    /* Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Body */
+    body {
+        background: linear-gradient(to right, #4e73df, #1cc88a);
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+
+    /* Main Container */
+    .dashboard-container {
+        max-width: 1000px;
+        margin: auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Title */
+    .title {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    /* Table Container */
+    .table-container {
+        overflow-x: auto;
+    }
+
+    /* Table Styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    /* Header */
+    thead {
+        background: #4e73df;
+        color: white;
+    }
+
+    thead th {
+        padding: 14px;
+        text-align: left;
+        font-size: 15px;
+    }
+
+    /* Table Body */
+    tbody td {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+    }
+
+    /* Hover Effect */
+    tbody tr:hover {
+        background-color: #f8f9fc;
+        transition: 0.3s;
+    }
+
+    /* Alternate Row Color */
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .dashboard-container {
+            padding: 20px;
+        }
+
+        thead {
+            font-size: 13px;
+        }
+
+        tbody td {
+            font-size: 13px;
+        }
+    }
+</style>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <h1 class="title">Student Management System</h1>
+<a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Course</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in students %}
+                    <tr>
+                        <td>{{ s.user.name }}</td>
+                        <td>{{ s.user.email }}</td>
+                        <td>{{ s.course }}</td>
+                        <td>{{ s.age }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
