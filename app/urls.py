@@ -2,8 +2,7 @@ from django.urls import path
 from .views import home, register, login, login_validation, teachersdashboard, studentsdashboard, add_student,edit_student,delete_student,logout_view
 
 urlpatterns = [
-    path("", home),
-    path("register/", register),
+  path('', register, name='register'),
     path("login/", login),
    path("login_validation/", login_validation, name="login_validation"),
    path("teachersdashboard/<int:id>/", teachersdashboard, name="teachersdashboard"),
